@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: actions-app-deployment
+  labels:
+    app: actions-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: actions-app
+  template:
+    metadata:
+      labels:
+        app: actions-app
+    spec:
+      containers:
+      - name: actions-app
+        image: 027619007323.dkr.ecr.us-west-1.amazonaws.com/repo-for-blog:latest
+        ports:
+        - containerPort: 3000
+
